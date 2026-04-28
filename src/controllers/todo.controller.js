@@ -11,3 +11,8 @@ export const getOne = (req, res, next) => {
   }
   res.json(todo);
 }
+
+export const create = (req, res) => {
+  const todo = service.createTodo(req.body);
+  res.status(201).json(todo);
+}
