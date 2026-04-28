@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import todoRoutes from "./routes/todo.routes.js";
+import { errorHandler } from "./middlewares/error.middleware.js";
 const app = express();
 
 // Body Parser
@@ -22,5 +23,8 @@ app.use(cors({
 
 // Routes
 app.use('/api/todos', todoRoutes)
+
+// Handling Error
+app.use(errorHandler);
 
 export default app;
