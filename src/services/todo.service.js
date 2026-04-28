@@ -23,3 +23,11 @@ export const updateTodo = (id, data) => {
 
   return todo;
 }
+
+export const deleteTodo = (id) => {
+  const index = todos.findIndex(t => t.id === Number(id));
+  if(index === -1) return false;
+
+  todos.splice(index, 1);
+  return true;
+}

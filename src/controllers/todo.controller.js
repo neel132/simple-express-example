@@ -24,3 +24,11 @@ export const update = (req, res, next) => {
   }
   res.json(todo);
 }
+
+export const remove = (req, res, next) => {
+  const success = service.deleteTodo(req.params.id);
+  if(!success) {
+    return next(new Error("Todo not found"));
+  }
+  res.json({ message: "Deleted successfully"});
+}
