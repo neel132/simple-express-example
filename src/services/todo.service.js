@@ -13,3 +13,13 @@ export const createTodo = (data) => {
   todos.push(newTodo);
   return newTodo;
 }
+
+export const updateTodo = (id, data) => {
+  const todo = todos.find(t => t.id === Number(id));
+  if(!todo) return null;
+
+  todo.title = data.title ?? todo.title;
+  todo.completed = data.completed ?? todo.completed;
+
+  return todo;
+}

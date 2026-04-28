@@ -16,3 +16,11 @@ export const create = (req, res) => {
   const todo = service.createTodo(req.body);
   res.status(201).json(todo);
 }
+
+export const update = (req, res, next) => {
+  const todo = service.updateTodo(req.params.id, req.body);
+  if(!todo) {
+    return next(new Error("Todo not found"));
+  }
+  res.json(todo);
+}
