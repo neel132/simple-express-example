@@ -3,9 +3,16 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import todoRoutes from "./routes/todo.routes.js";
+import todoViewRoutes from "./routes/todo.view.routes.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 import { notFound } from "./middlewares/notFound.middleware.js";
 const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', 'src/views');
+
+// static css
+app.use(express.static('src/public'));
 
 // Body Parser
 app.use(express.json());
@@ -22,8 +29,11 @@ app.use(cors({
     credentials: true
 }));
 
-// Routes
+// API Routes
 app.use('/api/todos', todoRoutes)
+
+// UI Routes
+app.use('/todos', todoViewRoutes)
 
 // 404
 app.use(notFound);

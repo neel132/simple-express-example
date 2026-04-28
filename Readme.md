@@ -7,13 +7,15 @@ Todo tasks Example
     |
     --src/
     |  |__controllers/
-    |  |  |_todo.controller.js
+    |  |  |-- todo.controller.js
+    |  |  |-- todo.view.controller.js 
     |  |
     |  |-- services/
-    |  |  |__todo.service.js
+    |  |  |-- todo.service.js
     |  |
     |  |-- routes/
-    |  |  |__todo.routes.js
+    |  |  |-- todo.routes.js
+    |  |  |-- todo.view.routes.js
     |  |
     |  |-- middlewares/
     |  |  |-- error.middleware.js
@@ -22,7 +24,14 @@ Todo tasks Example
     |  |  |-- validate.middleware.js
     |  |
     |  |-- data/
-    |  |   |__ todo.data.js
+    |  |   |-- todo.data.js
+    |  |
+    |  |-- views/
+    |  |   |-- todos.ejs
+    |  |
+    |  |-- public/
+    |  |   |-- css/
+    |  |        |-- style.css
     |  |
     |  |-- app.js
     |  |-- server.js
